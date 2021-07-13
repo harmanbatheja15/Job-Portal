@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Admin Login {% endblock %}
+
+{% block content %}
+
+{% include 'navbar.html' %}
+
+<link rel="stylesheet" href="{% static 'login.css' %}">
+
+<div class="cont loginFormContainer">
+
+    <div class="form">
+        <form method="post" action="">
+
+            {% csrf_token %}
+
+            <h1>Admin Log In</h1>
+
+            <input type="text" class="user" placeholder="Username" value="admin" name="username" required />
+            <input type="password" class="pass" placeholder="Password" value="admin" name="password" required />
+
+            <button type="submit" class="login">Login</button>
+
+        </form>
+    </div>
+
+</div>
+
+{% ifequal error "no" %}
+<script>
+    alert("Login Successfull");
+    window.location = ("{% url 'adminHome' %}");
+</script>
+{% endifequal %}
+
+{% ifequal error "yes" %}
+<script>
+    alert("Invalid Login! Try Again");
+    window.location = ("{% url 'adminLogin' %}");
+</script>
+{% endifequal %}
+
+{% endblock %}

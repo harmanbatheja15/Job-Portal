@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Admin Login {% endblock %}
+
+{% block content %}
+
+{% include 'navbar.html' %}
+
+<link rel="stylesheet" href="{% static 'login.css' %}">
+
+<div class="cont loginFormContainer">
+
+    <div class="form">
+        <form method="post" action="">
+
+            {% csrf_token %}
+
+            <h1>Change Status</h1>
+
+            <input type="text" class="user" name="username" value="{{employer.user.first_name}} {{employer.user.last_name}}" disabled>
+            
+            <select class="pass" name="status">
+                <option value="Accept">Accept</option>
+                <option value="Reject">Reject</option>
+            </select>
+
+            <button type="submit" class="login">Submit</button>
+
+        </form>
+    </div>
+
+</div>
+
+{% ifequal error "no" %}
+<script>
+    alert("Status changed successfully!");
+    window.location = ("{% url 'allEmployers' %}");
+</script>
+{% endifequal %}
+
+{% ifequal error "yes" %}
+<script>
+    alert("Invalid Login! Try Again");
+    window.location = ("{% url 'pendingEmployers' %}");
+</script>
+{% endifequal %}
+
+{% endblock %}

@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Posted Jobs {% endblock %}
+
+{% block content %}
+
+{% include 'employerNavbar.html' %}
+
+<link rel="stylesheet" href="{% static 'table.css' %}">
+
+<div class="container" style="margin-top: 100px;">
+
+    <h1 style="text-align: center; margin-bottom: 25px;">All Posted Jobs</h1>
+
+    <table class="table" border="1" cellspacing="0" cellpadding="1">
+
+        <thead>
+            <tr>
+                <th scope="col">S.No.</th>
+                <th scope="col">Company Name</th>
+                <th scope="col">Job Title</th>
+                <th scope="col">Creation Date</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% if job %}
+            
+            {% for i in job %}
+            <tr>
+                <td scope="row" aria-label="S.No.">{{forloop.counter}}</td>
+                <td aria-label="Company Name">{{i.company_name}}</td>
+                <td aria-label="Job Title">{{i.title}}</td>
+                <td aria-label="Creation Date">{{i.creationdate}}</td>
+                <td aria-label="Action">
+                    <a href="{% url 'editJobPost' i.id %}">Edit</a><br>
+                    <a href="{% url 'deleteJobPost' i.id %}" onclick="return confirm('Are you sure you want to delete it?')">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+            
+            {% else %}
+            <tr>
+                <td colspan="6">No records found.</td>
+            </tr>
+            
+            {% endif %}
+        </tbody>
+
+    </table>
+</div>
+
+{% endblock %}

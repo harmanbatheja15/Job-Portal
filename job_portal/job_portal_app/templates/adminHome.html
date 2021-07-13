@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Admin Home {% endblock %}
+
+{% block content %}
+
+{% include 'adminNavbar.html' %}
+
+<link rel="stylesheet" href="{% static 'adminHome.css' %}">
+
+<div class="wrapper">
+
+    <!-- <div class="header">
+        <h1 class="header__title">Find Jobs</h1>
+    </div> -->
+
+    <div class="cards">
+
+        <div class="card">
+            <div class="card__inner">
+
+                <div class="">
+                    <h3 class="title">Total Candidates</h3><br>
+                    <p class="title">{{candidate}}</p>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card__inner">
+        
+                <div class="">
+                    <h3 class="title">Total Employers</h3><br>
+                    <p class="title">{{employer}}</p>
+                </div>
+        
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card__inner">
+        
+                <div class="">
+                    <h3 class="title">Total Jobs</h3><br>
+                    <p class="title">{{job}}</p>
+                </div>
+        
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

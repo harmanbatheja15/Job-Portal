@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Accepted Employers Request {% endblock %}
+
+{% block content %}
+
+{% include 'adminNavbar.html' %}
+
+<link rel="stylesheet" href="{% static 'table.css' %}">
+
+<div class="container" style="margin-top: 100px;">
+
+    <h1 style="text-align: center; margin-bottom: 25px;">All Accepted Employers</h1>
+
+    <table class="table" border="1" cellspacing="0" cellpadding="1">
+
+        <thead>
+            <tr>
+                <th scope="col">S.No.</th>
+                <th scope="col">Full Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Phone Number</th>
+                <th scope="col">Status</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% if data %}
+            
+            {% for i in data %}
+            <tr>
+                <td scope="row" aria-label="S.No.">{{forloop.counter}}</td>
+                <td aria-label="Full Name">{{i.user.first_name}} {{i.user.last_name}}</td>
+                <td aria-label="Email">{{i.user.username}}</td>
+                <td aria-label="Phone Number">{{i.phone}}</td>
+                <td aria-label="Status">{{i.status}}</td>
+                <td aria-label="Action">
+                    <a href="{% url 'change_status' i.id %}">Change Status</a>
+                </td>
+            </tr>
+            {% endfor %}
+            
+            {% else %}
+            <tr>
+                <td colspan="6">No records found.</td>
+            </tr>
+            
+            {% endif %}
+        </tbody>
+
+    </table>
+</div>
+
+{% endblock %}

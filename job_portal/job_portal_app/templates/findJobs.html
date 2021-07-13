@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Find Jobs {% endblock %}
+
+{% block content %}
+
+{% include 'candidateNavbar.html' %}
+
+<link rel="stylesheet" href="{% static 'findJobs.css' %}">
+
+<div class="wrapper findJobs">
+
+    <div class="header">
+        <h1 class="header__title">Find Jobs</h1>
+    </div>
+
+    <div class="cards">
+
+        {% for i in job %}
+        <div class="card">
+            <div class="card__inner">
+
+                <div class="">
+                    <h3 class="job_title">{{i.title}}</h3>
+                    <p class="company_name">{{i.company_name}}</p>
+                </div>
+
+                <div class="headingsContainer">
+                    <div class="headings">
+                        <p>Start Date</p>
+                        <p>Salary</p>
+                        <p>Apply By</p>
+                    </div>
+                    
+                    <div class="headingsDetail">
+                        <p>Immediately</p>
+                        <p>{{ i.salary }}</p>
+                        <p>{{ i.end_date }}</p>
+                    </div>
+                </div>
+
+                <p class="experience"><span>Experience :</span> {{ i.experience }}</p>
+                
+                <div class="view_detail">
+                    <a href="{% url 'jobDetails' i.id %}">View Detail</a>
+                </div>
+
+            </div>
+        </div>
+        {% endfor %}
+
+    </div>
+
+</div>
+
+{% endblock %}

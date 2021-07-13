@@ -1,0 +1,68 @@
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'navbar.css' %}">
+
+<header class="navbarHeader navbar">
+    <div class="container">
+        <div class="header-main">
+            <div class="logo">
+                <a href="{% url 'adminHome' %}">Logo</a>
+            </div>
+            <div class="open-nav-menu">
+                <span></span>
+            </div>
+            <div class="menu-overlay">
+            </div>
+            <!-- navigation menu start -->
+            <nav class="nav-menu">
+                <div class="close-nav-menu">
+                    <img src="{% static 'images/close.svg' %}" alt="close">
+                </div>
+                <ul class="menu">
+
+                    <li class="menu-item">
+                        <a href="{% url 'adminHome' %}" {% if '/adminHome' == request.path %} class="active" {% else %} class="" {% endif %}>Home</a>
+                    </li>
+
+                    <li class="menu-item">
+                        <a href="{% url 'allCandidates' %}" {% if '/allCandidates' == request.path %} class="active" {% else %} class="" {% endif %}>All Candidates</a>
+                    </li>
+
+                    <li class="menu-item menu-item-has-children">
+                        <a href="#" data-toggle="sub-menu" {% if '/pendingEmployers' == request.path %} class="active" {% elif '/rejectedEmployers' == request.path %} class="active" {% elif '/acceptedEmployers' == request.path %} class="active" {% elif '/allEmployers' == request.path %} class="active" {% else %} class="" {% endif %}>Employers <i class="plus"></i></a>
+                        <ul class="sub-menu">
+                            <li class="menu-item"><a href="{% url 'pendingEmployers' %}">Pending Requests</a></li>
+                            <li class="menu-item"><a href="{% url 'acceptedEmployers' %}">Accepted Requests</a></li>
+                            <li class="menu-item"><a href="{% url 'rejectedEmployers' %}">Rejected Requests</a></li>
+                            <li class="menu-item"><a href="{% url 'allEmployers' %}">All Employers</a></li>
+                        </ul>
+                    </li>
+
+                    {% if request.user.is_authenticated %}
+                    <li class="menu-item menu-item-has-children">
+                        <a href="#" data-toggle="sub-menu">Account <i class="plus"></i></a>
+                        <ul class="sub-menu">
+                    
+                            <li class="menu-item">
+                                <a class="UserName">
+                                    {{user.username}}
+                                </a>
+                            </li>
+                            <br>
+                            <hr>
+                            <br>
+                    
+                            <li class="menu-item"><a href="">Change Password</a></li>
+                            <li class="menu-item"><a href="{% url 'Logout' %}">Logout</a></li>
+                        </ul>
+                    </li>
+                    {% endif %}
+
+                </ul>
+            </nav>
+            <!-- navigation menu end -->
+        </div>
+    </div>
+</header>
+
+<!-- <section class="home-section"></section> -->

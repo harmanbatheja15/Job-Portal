@@ -1,0 +1,149 @@
+.mainContainer {
+	width: 100vw;
+	margin-top: 130px;
+}
+
+.mainContainer .container {
+	background-color: #fff;
+	border-radius: 10px;
+	-webkit-border-radius: 10px;
+	overflow: hidden;
+	width: calc(100vw - 65vw);
+	max-width: 100%;
+    box-shadow: 0 5px 7px 0 rgba(0, 0, 0, .24);
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.mainContainer .header {
+	background: #10b496;
+	padding: 30px 0;
+}
+
+.mainContainer .header h2 {
+	color: #fff;
+	font-size: 24px;
+	text-transform: uppercase;
+	text-align: center;
+}
+
+.mainContainer .form {
+	padding: 40px;
+}
+
+.mainContainer .form-control {
+	margin-bottom: 30px;
+	position: relative;
+}
+
+.mainContainer .form-control label {
+	display: inline-block;
+	margin-bottom: 5px;
+}
+
+.mainContainer .form-control input, .mainContainer .form-control textarea {
+	width: 100%;
+	border: 2px solid #f0f0f0;
+	border-radius: 5px;
+	display: block;
+	font-size: 14px;
+	padding: 12px;
+}
+
+.mainContainer .form-control textarea {
+    height: 120px;
+    resize: none;
+}
+
+.mainContainer .form-control input:focus, .mainContainer .form-control textarea:focus {
+	outline: 0;
+	border-color: #777;
+}
+
+.mainContainer .form-control.success input, .mainContainer .form-control.success textarea {
+	border-color: #2ecc71;
+}
+
+.mainContainer .form-control.error input, .mainContainer .form-control.error textarea {
+	border-color: #e74c3c;
+}
+
+.mainContainer .form-control i {
+	position: absolute;
+	right: 12px;
+	top: 37px;
+	visibility: hidden;
+}
+
+.mainContainer .form-control.success i.fa-check-circle {
+	color: #2ecc71;
+	visibility: visible;
+}
+
+.mainContainer .form-control.error i.fa-exclamation-circle {
+	color: #e74c3c;
+	visibility: visible;
+}
+
+.mainContainer .form-control small {
+    margin-top: 5px;
+	color: #e74c3c;
+	position: absolute;
+	left: 0;
+	visibility: hidden;
+}
+
+.mainContainer .form-control.error small {
+	visibility: visible;
+}
+
+.mainContainer .form .btn {
+	background: #10b496;
+	border-radius: 6px;
+	border: none;
+	outline: none;
+	color: #fff;
+	display: block;
+	font-size: 16px;
+	padding: 15px 0;
+	margin-top: 40px;
+	width: 100%;
+	font-weight: bold;
+	text-transform: uppercase;
+	transition: all 1s ease;
+	cursor: pointer;
+}
+
+@media(max-width: 1400px) {
+	.mainContainer .container {
+        width: calc(100vw - 45vw);
+        max-width: 100%;
+	}
+}
+
+@media(max-width: 998px) {
+	.mainContainer .container {
+        width: calc(100vw - 35vw);
+        max-width: 100%;
+	}
+}
+
+@media(max-width: 720px) {
+	.mainContainer .container {
+        width: calc(100vw - 10vw);
+        max-width: 100%;
+	}
+}
+
+@media(max-width: 550px) {
+	.mainContainer .form {
+		padding: 20px;
+	}
+}
+
+@media(max-width: 500px) {
+	.mainContainer .container {
+        margin-top: 20px;
+		margin-bottom: 20px;
+	}
+}

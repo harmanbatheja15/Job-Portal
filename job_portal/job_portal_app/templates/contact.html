@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Contact Us {% endblock %}
+
+{% block content %}
+
+{% include 'navbar.html' %}
+
+<link rel="stylesheet" href="{% static 'contact.css' %}">
+
+<div class="mainContainer contact">
+    <div class="container">
+        <div class="header">
+            <h2>Contact Us</h2>
+        </div>
+
+        <form method="post" action="/contact" class="form" id="form">
+            {% csrf_token %}
+
+            <div class="form-control">
+                <label for="name">Name</label>
+                <input type="text" name="name" id="name" required placeholder="Enter Full Name" autocomplete="off">
+                <!-- <i class="fas fa-check-circle"></i> -->
+                <!-- <i class="fas fa-exclamation-circle"></i> -->
+                <!-- <small>Error Msg</small> -->
+            </div>
+
+            <div class="form-control">
+                <label for="email">Email</label>
+                <input type="email" name="email" id="email" required placeholder="Enter Email" autocomplete="off">
+                <!-- <i class="fas fa-check-circle"></i> -->
+                <!-- <i class="fas fa-exclamation-circle"></i> -->
+                <!-- <small>Error Msg</small> -->
+            </div>
+
+            <div class="form-control">
+                <label for="phone">Phone Number</label>
+                <input type="number" name="phone" id="phone" required placeholder="Enter Phone Number" autocomplete="off">
+                <!-- <i class="fas fa-check-circle"></i> -->
+                <!-- <i class="fas fa-exclamation-circle"></i> -->
+                <!-- <small>Error Msg</small> -->
+            </div>
+
+            <div class="form-control">
+                <label for="message">Message</label>
+                <textarea name="message" id="message" required placeholder="Enter Message" autocomplete="off"></textarea>
+                <!-- <i class="fas fa-check-circle"></i> -->
+                <!-- <i class="fas fa-exclamation-circle"></i> -->
+                <!-- <small>Error Msg</small> -->
+            </div>
+
+            <input type="submit" value="Submit" class="btn">
+
+        </form>
+    </div>
+</div>
+
+{% endblock %}

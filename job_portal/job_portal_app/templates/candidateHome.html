@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Profile {% endblock %}
+
+{% block content %}
+
+{% include 'candidateNavbar.html' %}
+
+<link rel="stylesheet" href="{% static 'candidateRegister.css' %}">
+
+<div class="cont candidateRegister">
+
+    <div class="form">
+        <form method="post" action="" enctype="multipart/form-data">
+
+            {% csrf_token %}
+
+            <h1>Profile</h1>
+
+            <label>First Name</label>
+            <input style="margin-top: 10px;" type="text" class="user" value="{{ candidate.user.first_name }}" name="first_name" required />
+            
+            <label>Last Name</label>
+            <input style="margin-top: 10px;" type="text" class="user" value="{{ candidate.user.last_name }}" name="last_name" required />
+            
+            <label>Phone Number</label>
+            <input style="margin-top: 10px;" type="number" class="user" value="{{ candidate.phone }}" name="phone" required />
+            
+            <label>Email</label>
+            <input style="margin-top: 10px;" type="email" class="user" value="{{ candidate.user.username }}" name="email" disabled />
+            
+            <label>Location (city)</label>
+            <input style="margin-top: 10px;" type="text" class="user" value="{{ candidate.location }}" name="location" required />
+
+            <button type="submit" class="signup">Submit</button>
+
+        </form>
+    </div>
+
+</div>
+
+{% ifequal error "no" %}
+<script>
+    alert("Profile Updated!");
+    window.location = ("{% url 'candidateHome' %}");
+</script>
+{% endifequal %}
+
+{% ifequal error "yes" %}
+<script>
+    alert("Something went wrong! Try Again");
+    window.location = ("{% url 'candidateHome' %}");
+</script>
+{% endifequal %}
+
+{% endblock %}

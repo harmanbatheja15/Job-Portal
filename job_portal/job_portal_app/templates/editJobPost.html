@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Post a job {% endblock %}
+
+{% block content %}
+
+{% include 'employerNavbar.html' %}
+
+<link rel="stylesheet" href="{% static 'employerRegister.css' %}">
+
+<div class="cont employerRegister">
+
+    <div class="form">
+        <form method="post" action="">
+
+            {% csrf_token %}
+
+            <h1>Post a job</h1>
+
+            <label>Job Title</label>
+            <input style="margin-top: 10px;" type="text" class="user" value="{{ job.title }}" name="jobtitle" required />
+
+            <label>Company Name</label>
+            <input style="margin-top: 10px;" type="text" class="user" value="{{ job.company_name }}" name="companyname" required />
+            
+            <label>Company Website</label>
+            <input style="margin-top: 10px;" type="text" class="user" value="{{ job.company_website }}" name="companywebsite" required />
+
+            <label>Start Date</label> [ {{ job.start_date }} ]
+            <input style="margin-top: 10px;" type="date" class="user" name="startdate" />
+
+            <label>End Date</label> [ {{ job.end_date }} ]
+            <input style="margin-top: 10px;" type="date" class="user" name="enddate" />
+
+            <label>Salary (per month)</label>
+            <input style="margin-top: 10px;" type="salary" class="user" value="{{ job.salary }}" name="salary" required />
+
+            <label>Experience (in year)</label>
+            <input style="margin-top: 10px;" type="experience" class="user" value="{{ job.experience }}" name="experience" required />
+
+            <label>Location (City)</label>
+            <input style="margin-top: 10px;" type="location" class="user" value="{{ job.location }}" name="location" required />
+
+            <label>Skills</label>
+            <input style="margin-top: 10px;" type="skills" class="user" value="{{ job.skills }}" name="skills" required />
+
+            <label>Description</label>
+            <textarea style="margin-top: 10px; resize: none;" name="description" class="user" cols="30" rows="8">{{ job.description }}</textarea>
+
+            <button type="submit" class="signup">Submit</button>
+
+        </form>
+    </div>
+
+</div>
+
+{% ifequal error "no" %}
+<script>
+    alert("Job edited successfully!");
+    window.location = ("{% url 'allJobs' %}");
+</script>
+{% endifequal %}
+
+{% ifequal error "yes" %}
+<script>
+    alert("Something Went Wrong! Try Again");
+    window.location = ("{% url 'allJobs' %}");
+</script>
+{% endifequal %}
+
+{% endblock %}

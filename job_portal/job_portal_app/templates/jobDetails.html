@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} {{job.title}} {% endblock %}
+
+{% block content %}
+
+{% if request.user.is_authenticated %}
+
+{% include 'candidateNavbar.html' %}
+
+{% else %}
+
+{% include 'navbar.html' %}
+
+{% endif %}
+
+<link rel="stylesheet" href="{% static 'jobDetails.css' %}">
+
+<div class="wrapper">
+
+    <div class="cards">
+        <div class="card">
+            <div class="card__inner">
+
+                <div>
+                    <h3 class="job_title">{{job.title}}</h3>
+                    <p class="company_name">{{job.company_name}}</p>
+                </div>
+
+                <div class="headingsContainer">
+                    <div class="headings">
+                        <p>Start Date</p>
+                        <p>Salary</p>
+                        <p>Apply By</p>
+                    </div>
+
+                    <div class="headingsDetail">
+                        <p>Immediately</p>
+                        <p>{{ job.salary }}</p>
+                        <p>{{ job.end_date }}</p>
+                    </div>
+                </div>
+
+                <p class="experience"><span>Experience :</span> {{ job.experience }} years</p>
+                <p class="location"><span>Location :</span> {{ job.location }}</p>
+
+                <br>
+                <hr>
+                <br>
+
+                <div>
+                    <h3 class="aboutJob">About the job</h3>
+                    <p class="description">{{job.description}}</p>
+                </div>
+
+                <div>
+                    <h3 class="skillsRequired">Skills Required</h3>
+                    <p class="skills">{{ job.skills }}</p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

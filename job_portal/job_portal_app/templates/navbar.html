@@ -1,0 +1,62 @@
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'navbar.css' %}">
+
+<header class="navbarHeader navbar">
+    <div class="container">
+        <div class="header-main">
+            <div class="logo">
+                <a href="/">Logo</a>
+            </div>
+            <div class="open-nav-menu">
+                <span></span>
+            </div>
+            <div class="menu-overlay">
+            </div>
+            <!-- navigation menu start -->
+            
+            <nav class="nav-menu">
+                <div class="close-nav-menu">
+                    <img src="{% static 'images/close.svg' %}" alt="close">
+                </div>
+                
+                <ul class="menu">
+
+                    {% if not request.user.is_authenticated %}
+
+                    <li class="menu-item">
+                        <a href="/" {% if '/' == request.path %} class="active" {% else %} class="" {% endif %}>Home</a>
+                    </li>
+
+                    <li class="menu-item menu-item-has-children">
+                        <a href="#" data-toggle="sub-menu" {% if '/candidateRegister' == request.path %} class="active" {% elif '/employerRegister' == request.path %} class="active" {% else %} class="" {% endif %}>Register <i class="plus"></i></a>
+                        <ul class="sub-menu">
+                            <li class="menu-item"><a href="{% url 'candidateRegister' %}">As candidate</a></li>
+                            <li class="menu-item"><a href="{% url 'employerRegister' %}">As employer</a></li>
+                        </ul>
+                    </li>
+                    
+                    <li class="menu-item menu-item-has-children">
+                        <a href="#" data-toggle="sub-menu" {% if '/candidateLogin' == request.path %} class="active" {% elif '/employerLogin' == request.path %} class="active" {% elif '/adminLogin' == request.path %} class="active" {% else %} class="" {% endif %}>Login <i class="plus"></i></a>
+                        <ul class="sub-menu">
+                            <li class="menu-item"><a href="{% url 'candidateLogin' %}">As candidate</a></li>
+                            <li class="menu-item"><a href="{% url 'employerLogin' %}">As employer</a></li>
+                            <li class="menu-item"><a href="{% url 'adminLogin' %}">As admin</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="menu-item">
+                        <a href="{% url 'contact' %}" {% if '/contact' == request.path %} class="active" {% else %} class="" {% endif %}>Contact Us</a>
+                    </li>
+
+                    {% endif %}
+
+                </ul>
+
+            </nav>
+            <!-- navigation menu end -->
+        </div>
+    </div>
+</header>
+
+<!-- <section class="home-section"></section> -->

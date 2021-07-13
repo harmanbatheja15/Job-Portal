@@ -1,0 +1,186 @@
+.home {
+	padding-top: 4rem;
+	padding-bottom: 4rem;
+	margin-bottom: 3rem;
+	background: #a3bded;
+	background: -webkit-linear-gradient(-20deg, #a3bded 0%, #6991c7 100%);
+	background: -moz-linear-gradient(-20deg, #a3bded 0%, #6991c7 100%);
+	background: linear-gradient(-20deg, #a3bded 0%, #6991c7 100%);
+    margin-top: 60px;
+}
+
+.home .site-heading {
+	padding: 100px 0 50px;
+	color: #fff;
+    margin-left: 200px;
+}
+
+.home .site-heading h1 {
+	font-size: 2.3rem;
+}
+
+.home .site-heading .inputContainer {
+	display: block;
+	font-weight: 300;
+	margin: 0.625rem 0 0;
+	color: #fff;
+}
+
+.home .site-heading .inputContainer input {
+    border: none;
+    outline: none;
+    padding: 7px 14px;
+    border-radius: 5px;
+    margin-top: 10px;
+    text-transform: capitalize;
+}
+
+.home .site-heading .inputContainer button {
+    border: none;
+    outline: none;
+    padding: 7px 14px;
+    background: #5b8eec;
+    color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.wrapper {
+	margin: 5em auto;
+	max-width: 100%;
+}
+
+.wrapper .header {
+	text-align: center;
+}
+
+.wrapper .header__title {
+	margin-bottom: 30px;
+}
+
+.wrapper .cards {
+	padding: 15px;
+	display: flex;
+	flex-flow: row wrap;
+}
+
+.wrapper .card {
+	margin: 15px;
+	width: calc((100% / 3) - 30px);
+	transition: all 0.2s ease-in-out;
+}
+
+.wrapper .card__inner {
+	width: 100%;
+	padding: 20px 10px 10px 20px;
+	position: relative;
+	background-color: #fff;
+	color: #000;
+	transition: all 0.2s ease-in-out;
+    box-shadow: 0 5px 7px 0 rgba(0, 0, 0, .24);
+}
+
+.wrapper .card__inner .job_title {
+    font-size: 20px;
+}
+
+.wrapper .card__inner .company_name {
+    margin-top: 5px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.wrapper .card__inner:after {
+	transition: all 0.3s ease-in-out;
+}
+
+.wrapper .card__inner .headingsContainer {
+    width: 70%;
+}
+
+.wrapper .card__inner .headings {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 20px;
+    font-size: 13px;
+    font-weight: bold;
+    color: gray;
+}
+
+.wrapper .card__inner .headingsDetail {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 13px;
+    margin-top: 10px;
+}
+
+.wrapper .card__inner .experience span, .wrapper .card__inner .location span {
+    font-weight: bold;
+    color: gray;
+}
+
+.wrapper .card__inner .experience {
+    font-size: 13px;
+    margin-top: 20px;
+    margin-bottom: 5px;
+}
+
+.wrapper .card__inner .location {
+    font-size: 13px;
+}
+
+.wrapper .card__inner .view_detail {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-bottom: 0 !important;
+    margin-top: 20px;
+}
+
+.wrapper .card__inner .view_detail a {
+    color: #008BDC;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+@media screen and (max-width: 1150px) {
+	.wrapper .card {
+		width: calc((100% / 2) - 30px);
+	}
+}
+
+@media screen and (max-width: 767px) {
+	.wrapper .card {
+		width: 100%;
+	}
+}
+
+@media screen and(max-width: 640px) {
+    .home .site-heading {
+        margin-left: 50px;
+    }
+}
+
+@media screen and (max-width: 470px) {
+	.wrapper .card__inner .headingsContainer {
+        width: 100%;
+    }
+    .wrapper .card__inner .view_detail {
+        margin-top: 30px;
+    }
+}
+
+@media screen and(max-width: 356px) {
+    .home .site-heading h1 {
+        font-size: 1.8rem;
+    }
+    .home .site-heading {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    .home .site-heading .inputContainer input {
+        width: 100%;
+    }
+}
